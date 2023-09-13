@@ -4,6 +4,6 @@ import com.localiza.myapplication.greeting.domain.datasource.MoistureDataSource
 
 class MoistureDataSourceImpl : MoistureDataSource {
     override suspend fun getMoistureRatio(): Int {
-        return 80;
+        return 40
     }
 }

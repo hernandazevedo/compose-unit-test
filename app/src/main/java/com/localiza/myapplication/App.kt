@@ -38,7 +38,7 @@ fun App(
         Surface(modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background) {
             Column() {
-                Button(onClick = {viewModel.checkWeather(80)}) {
+                Button(onClick = {viewModel.checkWeather(40)}) {
                     Text("Check Weather")
                 }
                 Greeting(name = "Android", state = state.value)
