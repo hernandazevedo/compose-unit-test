@@ -8,12 +8,17 @@ class WeatherRepositoryImpl(val moistureDataSource: MoistureDataSource) : Weathe
 
     override suspend fun getWeather(currentDegreeCelsius: Int): Weather {
         val isRaining = isRaining(currentDegreeCelsius)
-        return Weather(isRaining = isRaining(currentDegreeCelsius), winterIsComing = isRaining)
+        val mediumTemperature = calculateMediumTemperature(currentDegreeCelsius)
+        return Weather(isRaining = isRaining,
+            winterIsComing = isRaining,
+            mediumTemperature = mediumTemperature)
     }
 
 
-    private suspend fun isRaining(currentDegreeCelsius: Int) =
-        ((moistureDataSource.getMoistureRatio() + currentDegreeCelsius) / 2) <= DEGREE_RAINING
+    suspend fun isRaining(currentDegreeCelsius: Int) =
+        calculateMediumTemperature(currentDegreeCelsius) <= DEGREE_RAINING
 
+    suspend fun calculateMediumTemperature(currentDegreeCelsius: Int) =
+        ((moistureDataSource.getMoistureRatio() + currentDegreeCelsius) / 2).toDouble()
 
 }
