@@ -39,8 +39,7 @@ fun App(
             factory = GreetingViewModel.provideFactory(appModule.weatherRepository)
         )
 
-        val state = viewModel.state.collectAsState(
-            GreetingViewState.DefaultState)
+        val state = viewModel.state.collectAsState()
         var textValue by remember {
             mutableStateOf("40")
         }
