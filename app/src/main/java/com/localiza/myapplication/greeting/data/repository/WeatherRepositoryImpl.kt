@@ -1,7 +1,7 @@
-package com.localiza.myapplication.greeting.data
+package com.localiza.myapplication.greeting.data.repository
 
 import com.localiza.myapplication.greeting.domain.Weather
-import com.localiza.myapplication.greeting.domain.datasource.MoistureDataSource
+import com.localiza.myapplication.greeting.data.datasource.MoistureDataSource
 import com.localiza.myapplication.greeting.domain.repository.WeatherRepository
 const val DEGREE_RAINING = 40
 class WeatherRepositoryImpl(val moistureDataSource: MoistureDataSource) : WeatherRepository {
